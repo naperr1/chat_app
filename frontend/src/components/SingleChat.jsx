@@ -20,7 +20,7 @@ import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = "https://chat-app-qxyf.onrender.com";
 var socket, selectedChatCompare;
 const defaultOptions = {
   loop: true,
