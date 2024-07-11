@@ -9,6 +9,7 @@ import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import { Server } from "socket.io";
 import { createServer } from "node:http";
 import path from "node:path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const server = createServer(app);
