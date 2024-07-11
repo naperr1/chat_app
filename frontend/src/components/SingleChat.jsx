@@ -76,7 +76,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   useEffect(() => {
-    socket = io(BACKEND_URL);
+    socket = io("https://chat-app-qxyf.onrender.com");
     socket.emit("setup", user);
     socket.on("connected", () => {
       setSocketConnected(true);
