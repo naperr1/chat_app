@@ -26,17 +26,20 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-const __dirname1 = path.resolve();
+// Define __dirname in ES module scope
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "../frontend/build")));
+  // Correct path to build folder
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "../frontend/build", "index.html"))
+    res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {
-    res.send("API is running..");
+    res.send("API running...");
   });
 }
 
